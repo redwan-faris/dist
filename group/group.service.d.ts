@@ -1,0 +1,31 @@
+import { CaptinService } from 'src/captin/captin.service';
+import { Captin } from 'src/captin/entities/captin.entity';
+import { StudentService } from 'src/student/student.service';
+import { ChangeCaptinDto } from './dto/change-captin.dto';
+import { CreateGroupByAlgorithmDto } from './dto/create-group-by-algorithm.dto';
+import { CreateGroupDto } from './dto/create-group.dto';
+import { MoveStudentDto } from './dto/move-student.dto';
+import { Group } from './entities/group.entity';
+import { GroupRepository } from './group.repository';
+import { ChangeCaptinTransaction } from './transactions/changeCaptin.transaction';
+export declare class GroupService {
+    private readonly groupRepositpry;
+    private readonly studentService;
+    private readonly captinService;
+    private readonly changeCaptinTransaction;
+    constructor(groupRepositpry: GroupRepository, studentService: StudentService, captinService: CaptinService, changeCaptinTransaction: ChangeCaptinTransaction);
+    create(creategroupDto: CreateGroupDto): Promise<Group>;
+    findAll(): Promise<Group[]>;
+    findTomorrowGroup(captinId: string, studentId: string): Promise<Group>;
+    findOne(id: number): Promise<Group>;
+    remove(id: number): Promise<void>;
+    getDays(studentId: number, captinId: number): Promise<Group[] | import("./views/group-days.view").GroupDays[]>;
+    assignSecondaryCaptin(changeCaptinDto: ChangeCaptinDto): Promise<Group>;
+    reAssignPrimaryCaptin(captin: Captin): Promise<void>;
+    moveStudent(moveStudentDto: MoveStudentDto): Promise<void>;
+    findTodayGroups(): Promise<Group[]>;
+    checkStudentGroup(id: number): Promise<import("@nestjs/common").NotFoundException>;
+    changeStatus(): Promise<void>;
+    createGroupByAlgorithm(createGroupByAlgorithmDto: CreateGroupByAlgorithmDto): Promise<void>;
+    findTodayCaptin(id: number): Promise<Captin>;
+}

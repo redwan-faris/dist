@@ -1,0 +1,34 @@
+import { Day } from 'src/days/entities/day.entity';
+import { Department } from 'src/department/entities/department.entity';
+import { Polygon } from 'src/polygon/entities/polygon.entity';
+import { Region } from 'src/region/entities/region.entity';
+import { Shift } from 'src/shift/entities/shift.entity';
+import { StudentPayroll } from 'src/student_payroll/entities/student_payroll.entity';
+import { StudentType } from 'src/student_type/entities/student_type.entity';
+import { User } from 'src/user/entities/user.entity';
+import { StudentGroup } from 'src/group/entities/student-group.entity';
+import { Rating } from 'src/rating/entities/rating.entity';
+export declare class Student {
+    id: number;
+    department_door: string;
+    birth_date: Date;
+    parents_number: string;
+    gender: string;
+    stage: string;
+    section: string;
+    leave_time: string;
+    department: Department;
+    polygons: Polygon;
+    region: Region;
+    shift: Shift;
+    student_type: StudentType;
+    days: Day[];
+    user: User;
+    student_payroll: StudentPayroll;
+    is_active: boolean;
+    vecation: boolean;
+    studentGroup: StudentGroup[];
+    ratings: Rating;
+    created_at: Date;
+    updated_at: Date;
+}

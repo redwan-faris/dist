@@ -1,0 +1,30 @@
+import { NotFoundException } from '@nestjs/common';
+import { Captin } from 'src/captin/entities/captin.entity';
+import { Student } from 'src/student/entities/student.entity';
+import { Connection, Repository } from 'typeorm';
+import { CreateGroupDto } from './dto/create-group.dto';
+import { MoveStudentDto } from './dto/move-student.dto';
+import { Group } from './entities/group.entity';
+import { StudentGroup } from './entities/student-group.entity';
+import { GroupDays } from './views/group-days.view';
+export declare class GroupRepository {
+    private readonly connection;
+    private groupRepository;
+    private studentGroupRepository;
+    constructor(connection: Connection, groupRepository: Repository<Group>, studentGroupRepository: Repository<StudentGroup>);
+    creategroup(student_group: StudentGroup, captin: Captin, creategroupDto: CreateGroupDto): Promise<Group>;
+    findAllGroups(): Promise<Group[]>;
+    findOneGroup(id: number): Promise<Group>;
+    findDaysForStudent(id: number): Promise<GroupDays[]>;
+    findDaysForCaptin(id: number): Promise<Group[]>;
+    findTomorrowForCaptin(id: number): Promise<Group>;
+    findTomorrowForStudent(id: number): Promise<Group>;
+    reAssignPrimaryCaptin(captin: Captin): Promise<void>;
+    findStudentGroup(id: number): Promise<StudentGroup>;
+    checkStudentGroup(id: number): Promise<NotFoundException>;
+    moveStudent(student: Student, moveStudentDto: MoveStudentDto): Promise<void>;
+    createStudentsGroup(students: Student[]): Promise<StudentGroup>;
+    findTodayGroups(): Promise<Group[]>;
+    deleteGroup(id: number): Promise<void>;
+    findTodayCaptin(id: number): Promise<Captin>;
+}
