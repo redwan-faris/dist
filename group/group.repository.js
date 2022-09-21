@@ -91,7 +91,7 @@ let GroupRepository = class GroupRepository {
             .leftJoinAndSelect('groups.student_group', 'student_group')
             .leftJoinAndSelect('student_group.students', 'students')
             .leftJoinAndSelect('captin.user', 'captin_user')
-            .leftJoinAndSelect('captin.car', 'car')
+            .leftJoinAndSelect('captin.cars', 'car')
             .leftJoinAndSelect('students.polygons', 'polygons')
             .leftJoinAndSelect('captin.polygon', 'polygon')
             .leftJoinAndSelect('students.user', 'student_user')
