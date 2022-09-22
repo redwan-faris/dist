@@ -49,6 +49,8 @@ let CarRepository = class CarRepository extends typeorm_1.Repository {
     async addPicture(path, id) {
         const car = await this.findCarById(id);
         car.picture = path;
+        console.log(car);
+        console.log(id);
         await this.save(car);
     }
     async deleteCar(id) {

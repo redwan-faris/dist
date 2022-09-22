@@ -52,6 +52,8 @@ let UserController = class UserController {
 };
 __decorate([
     (0, common_1.Post)(),
+    (0, roles_decorator_1.hasRoles)('SUPERADMIN'),
+    (0, common_1.UseGuards)(jwt_guard_1.JwtAuthGuard, accountant_guard_1.RoleAccountantGuard),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [create_user_dto_1.CreateUserDto]),
@@ -67,7 +69,6 @@ __decorate([
 ], UserController.prototype, "findAll", null);
 __decorate([
     (0, common_1.Get)('check-phone/:phone'),
-    (0, common_1.UseGuards)(jwt_guard_1.JwtAuthGuard),
     __param(0, (0, common_1.Param)('phone')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
