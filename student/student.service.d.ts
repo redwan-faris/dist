@@ -7,6 +7,7 @@ import { ShiftService } from 'src/shift/shift.service';
 import { StudentTypeService } from 'src/student_type/student_type.service';
 import { UserService } from 'src/user/user.service';
 import { CreateStudentDto } from './dto/create-student.dto';
+import { UpdateStudentDaysDto } from './dto/update-days.dto';
 import { UpdateStudentDto } from './dto/update-student-for-user.dto';
 import { UpdateStudentProfileDto } from './dto/update-student.dto';
 import { Student } from './entities/student.entity';
@@ -30,6 +31,7 @@ export declare class StudentService {
     updateStudent(id: number, updateStudentDto: UpdateStudentDto): Promise<void>;
     remove(id: number): Promise<void>;
     findMultiple(ids: number[]): Promise<Student[]>;
+    updateDays(id: number, updateDaysDto: UpdateStudentDaysDto): Promise<Student>;
     changeVecationStatus(id: number): Promise<boolean>;
     updateStudentProfile(id: number, updateStudentProfileDto: UpdateStudentProfileDto): Promise<void>;
     changeStudentStatus(): void;

@@ -20,4 +20,5 @@ export declare class StudentRepository extends Repository<Student> {
     changeVecationStatusSchedule(): Promise<void>;
     updateStudentForAdmin(id: number, updateStudentDto: UpdateStudentDto, department: Department, studentType: StudentType, region: Region, shift: Shift, days: Day[]): Promise<Student>;
     updateStudentProfile(id: number, updateStudentProfileDto: UpdateStudentProfileDto): Promise<Student>;
+    updateStudentDays(id: number, days: Day[]): Promise<Student>;
 }

@@ -72,6 +72,10 @@ let StudentService = class StudentService {
     findMultiple(ids) {
         return this.studentRepostory.findMultipleStudents(ids);
     }
+    async updateDays(id, updateDaysDto) {
+        const days = await this.dayService.findDaysByIds(updateDaysDto.days);
+        return await this.studentRepostory.updateStudentDays(id, days);
+    }
     async changeVecationStatus(id) {
         const student = await this.studentRepostory.changeVecationStatus(id);
         if (student.vecation) {

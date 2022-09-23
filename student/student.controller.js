@@ -21,6 +21,7 @@ const roles_decorator_1 = require("../auth/decorators/roles.decorator");
 const jwt_guard_1 = require("../auth/guards/jwt.guard");
 const accountant_guard_1 = require("../auth/guards/accountant.guard");
 const update_student_for_user_dto_1 = require("./dto/update-student-for-user.dto");
+const update_days_dto_1 = require("./dto/update-days.dto");
 let StudentController = class StudentController {
     constructor(studentService) {
         this.studentService = studentService;
@@ -38,6 +39,9 @@ let StudentController = class StudentController {
     }
     findOne(id) {
         return this.studentService.findOne(+id);
+    }
+    udpateDays(id, updateStudentDaysDto) {
+        return this.studentService.updateDays(+id, updateStudentDaysDto);
     }
     update(id, updateStudentProfileDto) {
         return this.studentService.updateStudentProfile(+id, updateStudentProfileDto);
@@ -80,6 +84,15 @@ __decorate([
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", Promise)
 ], StudentController.prototype, "findOne", null);
+__decorate([
+    (0, common_1.Patch)('days/:id'),
+    (0, common_1.UseGuards)(jwt_guard_1.JwtAuthGuard),
+    __param(0, (0, common_1.Param)('id')),
+    __param(1, (0, common_1.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String, update_days_dto_1.UpdateStudentDaysDto]),
+    __metadata("design:returntype", void 0)
+], StudentController.prototype, "udpateDays", null);
 __decorate([
     (0, common_1.Patch)('profile/:id'),
     (0, common_1.UseGuards)(jwt_guard_1.JwtAuthGuard),

@@ -43,7 +43,7 @@ let StudentRepository = class StudentRepository extends typeorm_1.Repository {
         return this.find({ relations: ["student_type", "department", "shift", "region", "polygons"], loadEagerRelations: true });
     }
     async findOneStudent(id) {
-        const student = await this.findOne(id);
+        const student = await this.findOne(id, { relations: ['department'] });
         if (!student) {
             throw new common_1.NotFoundException('Student not found');
         }
@@ -91,6 +91,11 @@ let StudentRepository = class StudentRepository extends typeorm_1.Repository {
         student.stage = stage;
         student.user.backup_phone_number = backup_phone_number;
         student.parents_number = parents_number;
+        return await this.save(student);
+    }
+    async updateStudentDays(id, days) {
+        const student = await this.findOneStudent(id);
+        student.days = days;
         return await this.save(student);
     }
 };
