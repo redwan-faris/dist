@@ -71,5 +71,9 @@ __decorate([
     (0, class_validator_1.IsNotEmpty)(),
     __metadata("design:type", String)
 ], CreateStudentDto.prototype, "section", void 0);
+__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    __metadata("design:type", String)
+], CreateStudentDto.prototype, "collage", void 0);
 exports.CreateStudentDto = CreateStudentDto;
 //# sourceMappingURL=create-student.dto.js.map

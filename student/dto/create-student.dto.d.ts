@@ -15,4 +15,5 @@ export declare class CreateStudentDto {
     gender: string;
     stage: string;
     section: string;
+    collage: string;
 }

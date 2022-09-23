@@ -36,6 +36,7 @@ let StudentRepository = class StudentRepository extends typeorm_1.Repository {
         student.section = createStudentDto.section;
         student.stage = createStudentDto.stage;
         student.leave_time = createStudentDto.leaveTime;
+        student.collage = createStudentDto.collage;
         return await manager.getRepository(student_entity_1.Student).save(student);
     }
     async findAllStudents() {

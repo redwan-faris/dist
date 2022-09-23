@@ -24,7 +24,6 @@ let CarService = class CarService {
     }
     async uploadPhoto(filePath, id) {
         const carPicture = await this.carPicture.run(filePath);
-        console.log(id);
         return this.carRepository.addPicture(carPicture, id);
     }
     async changePhoto(filePath, id) {

@@ -27,6 +27,7 @@ export declare class Student {
     student_payroll: StudentPayroll;
     is_active: boolean;
     vecation: boolean;
+    collage: string;
     studentGroup: StudentGroup[];
     ratings: Rating;
     created_at: Date;

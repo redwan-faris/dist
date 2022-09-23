@@ -102,6 +102,10 @@ __decorate([
     __metadata("design:type", Boolean)
 ], Student.prototype, "vecation", void 0);
 __decorate([
+    (0, typeorm_1.Column)({ length: 35, nullable: false, type: 'varchar' }),
+    __metadata("design:type", String)
+], Student.prototype, "collage", void 0);
+__decorate([
     (0, typeorm_1.ManyToMany)((type) => student_group_entity_1.StudentGroup, (group) => group.students),
     (0, typeorm_1.JoinTable)(),
     __metadata("design:type", Array)
