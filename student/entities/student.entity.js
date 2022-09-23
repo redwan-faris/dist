@@ -57,7 +57,7 @@ __decorate([
     __metadata("design:type", String)
 ], Student.prototype, "leave_time", void 0);
 __decorate([
-    (0, typeorm_1.ManyToOne)((type) => department_entity_1.Department, (department) => department.students),
+    (0, typeorm_1.ManyToOne)((type) => department_entity_1.Department, (department) => department.students, { eager: true }),
     (0, class_transformer_1.Transform)(({ value }) => value.name),
     __metadata("design:type", department_entity_1.Department)
 ], Student.prototype, "department", void 0);

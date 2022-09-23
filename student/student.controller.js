@@ -78,7 +78,6 @@ __decorate([
 ], StudentController.prototype, "changeVecationStatus", null);
 __decorate([
     (0, common_1.Get)(':id'),
-    (0, common_1.UseGuards)(jwt_guard_1.JwtAuthGuard),
     __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
@@ -86,7 +85,6 @@ __decorate([
 ], StudentController.prototype, "findOne", null);
 __decorate([
     (0, common_1.Patch)('days/:id'),
-    (0, common_1.UseGuards)(jwt_guard_1.JwtAuthGuard),
     __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.Body)()),
     __metadata("design:type", Function),
