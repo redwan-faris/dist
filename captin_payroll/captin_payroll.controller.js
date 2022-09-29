@@ -15,8 +15,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.CaptinPayrollController = void 0;
 const common_1 = require("@nestjs/common");
 const roles_decorator_1 = require("../auth/decorators/roles.decorator");
-const jwt_guard_1 = require("../auth/guards/jwt.guard");
-const accountant_guard_1 = require("../auth/guards/accountant.guard");
 const captin_payroll_service_1 = require("./captin_payroll.service");
 const create_captin_payroll_dto_1 = require("./dto/create-captin_payroll.dto");
 const update_captin_payroll_dto_1 = require("./dto/update-captin_payroll.dto");
@@ -78,7 +76,6 @@ __decorate([
 CaptinPayrollController = __decorate([
     (0, common_1.Controller)('captin-payroll'),
     (0, roles_decorator_1.hasRoles)('ACCOUNTANT'),
-    (0, common_1.UseGuards)(jwt_guard_1.JwtAuthGuard, accountant_guard_1.RoleAccountantGuard),
     __metadata("design:paramtypes", [captin_payroll_service_1.CaptinPayrollService])
 ], CaptinPayrollController);
 exports.CaptinPayrollController = CaptinPayrollController;

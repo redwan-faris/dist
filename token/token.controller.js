@@ -17,8 +17,6 @@ const common_1 = require("@nestjs/common");
 const token_service_1 = require("./token.service");
 const create_token_dto_1 = require("./dto/create-token.dto");
 const update_token_dto_1 = require("./dto/update-token.dto");
-const accountant_guard_1 = require("../auth/guards/accountant.guard");
-const jwt_guard_1 = require("../auth/guards/jwt.guard");
 const roles_decorator_1 = require("../auth/decorators/roles.decorator");
 let TokenController = class TokenController {
     constructor(tokenService) {
@@ -79,7 +77,6 @@ __decorate([
 TokenController = __decorate([
     (0, common_1.Controller)('token'),
     (0, roles_decorator_1.hasRoles)('ADMIN'),
-    (0, common_1.UseGuards)(jwt_guard_1.JwtAuthGuard, accountant_guard_1.RoleAccountantGuard),
     __metadata("design:paramtypes", [token_service_1.TokenService])
 ], TokenController);
 exports.TokenController = TokenController;

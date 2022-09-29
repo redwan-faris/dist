@@ -18,8 +18,6 @@ const price_region_service_1 = require("./price_region.service");
 const create_price_region_dto_1 = require("./dto/create-price_region.dto");
 const update_price_region_dto_1 = require("./dto/update-price_region.dto");
 const roles_decorator_1 = require("../auth/decorators/roles.decorator");
-const jwt_guard_1 = require("../auth/guards/jwt.guard");
-const accountant_guard_1 = require("../auth/guards/accountant.guard");
 let PriceRegionController = class PriceRegionController {
     constructor(priceRegionService) {
         this.priceRegionService = priceRegionService;
@@ -78,7 +76,6 @@ __decorate([
 PriceRegionController = __decorate([
     (0, common_1.Controller)('price-region'),
     (0, roles_decorator_1.hasRoles)('ADMIN'),
-    (0, common_1.UseGuards)(jwt_guard_1.JwtAuthGuard, accountant_guard_1.RoleAccountantGuard),
     __metadata("design:paramtypes", [price_region_service_1.PriceRegionService])
 ], PriceRegionController);
 exports.PriceRegionController = PriceRegionController;

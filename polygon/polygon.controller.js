@@ -17,8 +17,6 @@ const common_1 = require("@nestjs/common");
 const polygon_service_1 = require("./polygon.service");
 const create_polygon_dto_1 = require("./dto/create-polygon.dto");
 const update_polygon_dto_1 = require("./dto/update-polygon.dto");
-const jwt_guard_1 = require("../auth/guards/jwt.guard");
-const accountant_guard_1 = require("../auth/guards/accountant.guard");
 const roles_decorator_1 = require("../auth/decorators/roles.decorator");
 let PolygonController = class PolygonController {
     constructor(polygonService) {
@@ -79,7 +77,6 @@ __decorate([
 PolygonController = __decorate([
     (0, common_1.Controller)('polygon'),
     (0, roles_decorator_1.hasRoles)('ADMIN'),
-    (0, common_1.UseGuards)(jwt_guard_1.JwtAuthGuard, accountant_guard_1.RoleAccountantGuard),
     __metadata("design:paramtypes", [polygon_service_1.PolygonService])
 ], PolygonController);
 exports.PolygonController = PolygonController;

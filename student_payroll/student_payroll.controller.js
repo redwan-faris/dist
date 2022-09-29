@@ -17,8 +17,6 @@ const common_1 = require("@nestjs/common");
 const student_payroll_service_1 = require("./student_payroll.service");
 const create_student_payroll_dto_1 = require("./dto/create-student_payroll.dto");
 const update_student_payroll_dto_1 = require("./dto/update-student_payroll.dto");
-const accountant_guard_1 = require("../auth/guards/accountant.guard");
-const jwt_guard_1 = require("../auth/guards/jwt.guard");
 const roles_decorator_1 = require("../auth/decorators/roles.decorator");
 let StudentPayrollController = class StudentPayrollController {
     constructor(studentPayrollService) {
@@ -78,7 +76,6 @@ __decorate([
 StudentPayrollController = __decorate([
     (0, common_1.Controller)('student-payroll'),
     (0, roles_decorator_1.hasRoles)('ACCOUNTANT'),
-    (0, common_1.UseGuards)(jwt_guard_1.JwtAuthGuard, accountant_guard_1.RoleAccountantGuard),
     __metadata("design:paramtypes", [student_payroll_service_1.StudentPayrollService])
 ], StudentPayrollController);
 exports.StudentPayrollController = StudentPayrollController;

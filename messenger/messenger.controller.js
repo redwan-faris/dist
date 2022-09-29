@@ -18,8 +18,6 @@ const messenger_service_1 = require("./messenger.service");
 const create_messenger_dto_1 = require("./dto/create-messenger.dto");
 const update_messenger_dto_1 = require("./dto/update-messenger.dto");
 const roles_decorator_1 = require("../auth/decorators/roles.decorator");
-const jwt_guard_1 = require("../auth/guards/jwt.guard");
-const accountant_guard_1 = require("../auth/guards/accountant.guard");
 let MessengerController = class MessengerController {
     constructor(messengerService) {
         this.messengerService = messengerService;
@@ -42,7 +40,6 @@ let MessengerController = class MessengerController {
 };
 __decorate([
     (0, common_1.Post)(),
-    (0, common_1.UseGuards)(jwt_guard_1.JwtAuthGuard),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [create_messenger_dto_1.CreateMessengerDto]),
@@ -51,7 +48,6 @@ __decorate([
 __decorate([
     (0, common_1.Get)(),
     (0, roles_decorator_1.hasRoles)('ADMIN'),
-    (0, common_1.UseGuards)(jwt_guard_1.JwtAuthGuard, accountant_guard_1.RoleAccountantGuard),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
@@ -59,7 +55,6 @@ __decorate([
 __decorate([
     (0, common_1.Get)(':id'),
     (0, roles_decorator_1.hasRoles)('ADMIN'),
-    (0, common_1.UseGuards)(jwt_guard_1.JwtAuthGuard, accountant_guard_1.RoleAccountantGuard),
     __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
@@ -68,7 +63,6 @@ __decorate([
 __decorate([
     (0, common_1.Patch)(':id'),
     (0, roles_decorator_1.hasRoles)('ADMIN'),
-    (0, common_1.UseGuards)(jwt_guard_1.JwtAuthGuard, accountant_guard_1.RoleAccountantGuard),
     __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.Body)()),
     __metadata("design:type", Function),
@@ -78,7 +72,6 @@ __decorate([
 __decorate([
     (0, common_1.Delete)(':id'),
     (0, roles_decorator_1.hasRoles)('ADMIN'),
-    (0, common_1.UseGuards)(jwt_guard_1.JwtAuthGuard, accountant_guard_1.RoleAccountantGuard),
     __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),

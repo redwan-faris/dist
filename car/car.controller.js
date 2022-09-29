@@ -19,8 +19,6 @@ const multer_1 = require("multer");
 const path_1 = require("path");
 const rxjs_1 = require("rxjs");
 const roles_decorator_1 = require("../auth/decorators/roles.decorator");
-const accountant_guard_1 = require("../auth/guards/accountant.guard");
-const jwt_guard_1 = require("../auth/guards/jwt.guard");
 const car_service_1 = require("./car.service");
 const create_car_dto_1 = require("./dto/create-car.dto");
 const update_car_dto_1 = require("./dto/update-car.dto");
@@ -65,7 +63,6 @@ __decorate([
 ], CarController.prototype, "downloadPicture", null);
 __decorate([
     (0, common_1.Post)('upload-picture/:id'),
-    (0, common_1.UseGuards)(jwt_guard_1.JwtAuthGuard),
     (0, common_1.UseInterceptors)((0, platform_express_1.FileInterceptor)('file', {
         storage: (0, multer_1.diskStorage)({
             destination: './upload/',
@@ -79,7 +76,6 @@ __decorate([
 ], CarController.prototype, "uploadPhoto", null);
 __decorate([
     (0, common_1.Put)('change-picture/:id'),
-    (0, common_1.UseGuards)(jwt_guard_1.JwtAuthGuard),
     (0, common_1.UseInterceptors)((0, platform_express_1.FileInterceptor)('file', {
         storage: (0, multer_1.diskStorage)({
             destination: './upload/',
@@ -93,7 +89,6 @@ __decorate([
 ], CarController.prototype, "changePicture", null);
 __decorate([
     (0, common_1.Post)(':temp_id'),
-    (0, common_1.UseGuards)(jwt_guard_1.JwtAuthGuard),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [create_car_dto_1.CreateCarDto]),
@@ -102,14 +97,12 @@ __decorate([
 __decorate([
     (0, common_1.Get)(),
     (0, roles_decorator_1.hasRoles)('ADMIN'),
-    (0, common_1.UseGuards)(jwt_guard_1.JwtAuthGuard, accountant_guard_1.RoleAccountantGuard),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Promise)
 ], CarController.prototype, "findAll", null);
 __decorate([
     (0, common_1.Get)(':id'),
-    (0, common_1.UseGuards)(jwt_guard_1.JwtAuthGuard),
     __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
@@ -117,7 +110,6 @@ __decorate([
 ], CarController.prototype, "findOne", null);
 __decorate([
     (0, common_1.Patch)(':id'),
-    (0, common_1.UseGuards)(jwt_guard_1.JwtAuthGuard),
     (0, common_1.UseInterceptors)((0, platform_express_1.FileInterceptor)('file', {
         storage: (0, multer_1.diskStorage)({
             destination: './upload',

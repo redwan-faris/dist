@@ -18,8 +18,6 @@ const region_service_1 = require("./region.service");
 const create_region_dto_1 = require("./dto/create-region.dto");
 const update_region_dto_1 = require("./dto/update-region.dto");
 const roles_decorator_1 = require("../auth/decorators/roles.decorator");
-const jwt_guard_1 = require("../auth/guards/jwt.guard");
-const accountant_guard_1 = require("../auth/guards/accountant.guard");
 let RegionController = class RegionController {
     constructor(regionService) {
         this.regionService = regionService;
@@ -43,7 +41,6 @@ let RegionController = class RegionController {
 __decorate([
     (0, common_1.Post)(),
     (0, roles_decorator_1.hasRoles)('ADMIN'),
-    (0, common_1.UseGuards)(jwt_guard_1.JwtAuthGuard, accountant_guard_1.RoleAccountantGuard),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [create_region_dto_1.CreateRegionDto]),
@@ -65,7 +62,6 @@ __decorate([
 __decorate([
     (0, common_1.Patch)(':id'),
     (0, roles_decorator_1.hasRoles)('ADMIN'),
-    (0, common_1.UseGuards)(jwt_guard_1.JwtAuthGuard, accountant_guard_1.RoleAccountantGuard),
     __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.Body)()),
     __metadata("design:type", Function),
@@ -75,7 +71,6 @@ __decorate([
 __decorate([
     (0, common_1.Delete)(':id'),
     (0, roles_decorator_1.hasRoles)('ADMIN'),
-    (0, common_1.UseGuards)(jwt_guard_1.JwtAuthGuard, accountant_guard_1.RoleAccountantGuard),
     __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),

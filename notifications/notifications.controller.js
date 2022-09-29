@@ -17,8 +17,6 @@ const common_1 = require("@nestjs/common");
 const notifications_service_1 = require("./notifications.service");
 const create_notification_dto_1 = require("./dto/create-notification.dto");
 const update_notification_dto_1 = require("./dto/update-notification.dto");
-const accountant_guard_1 = require("../auth/guards/accountant.guard");
-const jwt_guard_1 = require("../auth/guards/jwt.guard");
 const roles_decorator_1 = require("../auth/decorators/roles.decorator");
 let NotificationsController = class NotificationsController {
     constructor(notificationsService) {
@@ -43,7 +41,6 @@ let NotificationsController = class NotificationsController {
 __decorate([
     (0, common_1.Post)(),
     (0, roles_decorator_1.hasRoles)('ADMIN'),
-    (0, common_1.UseGuards)(jwt_guard_1.JwtAuthGuard, accountant_guard_1.RoleAccountantGuard),
     __param(0, (0, common_1.Query)('type')),
     __param(1, (0, common_1.Body)()),
     __metadata("design:type", Function),
@@ -52,7 +49,6 @@ __decorate([
 ], NotificationsController.prototype, "create", null);
 __decorate([
     (0, common_1.Get)(),
-    (0, common_1.UseGuards)(jwt_guard_1.JwtAuthGuard),
     __param(0, (0, common_1.Query)('userId')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object]),
@@ -61,7 +57,6 @@ __decorate([
 __decorate([
     (0, common_1.Get)(':id'),
     (0, roles_decorator_1.hasRoles)('ADMIN'),
-    (0, common_1.UseGuards)(jwt_guard_1.JwtAuthGuard, accountant_guard_1.RoleAccountantGuard),
     __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
@@ -70,7 +65,6 @@ __decorate([
 __decorate([
     (0, common_1.Patch)(':id'),
     (0, roles_decorator_1.hasRoles)('ADMIN'),
-    (0, common_1.UseGuards)(jwt_guard_1.JwtAuthGuard, accountant_guard_1.RoleAccountantGuard),
     __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.Body)()),
     __metadata("design:type", Function),
@@ -80,7 +74,6 @@ __decorate([
 __decorate([
     (0, common_1.Delete)(':id'),
     (0, roles_decorator_1.hasRoles)('ADMIN'),
-    (0, common_1.UseGuards)(jwt_guard_1.JwtAuthGuard, accountant_guard_1.RoleAccountantGuard),
     __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),

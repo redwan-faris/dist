@@ -18,8 +18,6 @@ const group_service_1 = require("./group.service");
 const create_group_dto_1 = require("./dto/create-group.dto");
 const change_captin_dto_1 = require("./dto/change-captin.dto");
 const move_student_dto_1 = require("./dto/move-student.dto");
-const accountant_guard_1 = require("../auth/guards/accountant.guard");
-const jwt_guard_1 = require("../auth/guards/jwt.guard");
 const roles_decorator_1 = require("../auth/decorators/roles.decorator");
 const create_group_by_algorithm_dto_1 = require("./dto/create-group-by-algorithm.dto");
 let GroupController = class GroupController {
@@ -58,7 +56,6 @@ let GroupController = class GroupController {
 __decorate([
     (0, common_1.Post)(),
     (0, roles_decorator_1.hasRoles)('ADMIN'),
-    (0, common_1.UseGuards)(jwt_guard_1.JwtAuthGuard, accountant_guard_1.RoleAccountantGuard),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [create_group_dto_1.CreateGroupDto]),
@@ -67,7 +64,6 @@ __decorate([
 __decorate([
     (0, common_1.Post)(),
     (0, roles_decorator_1.hasRoles)('ADMIN'),
-    (0, common_1.UseGuards)(jwt_guard_1.JwtAuthGuard, accountant_guard_1.RoleAccountantGuard),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [create_group_by_algorithm_dto_1.CreateGroupByAlgorithmDto]),
@@ -75,7 +71,6 @@ __decorate([
 ], GroupController.prototype, "createByAlgorithm", null);
 __decorate([
     (0, common_1.Get)('days'),
-    (0, common_1.UseGuards)(jwt_guard_1.JwtAuthGuard),
     __param(0, (0, common_1.Query)('studentId')),
     __param(1, (0, common_1.Query)('captinId')),
     __metadata("design:type", Function),
@@ -84,7 +79,6 @@ __decorate([
 ], GroupController.prototype, "getStudent", null);
 __decorate([
     (0, common_1.Get)('tomorrow'),
-    (0, common_1.UseGuards)(jwt_guard_1.JwtAuthGuard),
     __param(0, (0, common_1.Query)('captindId')),
     __param(1, (0, common_1.Query)('studentId')),
     __metadata("design:type", Function),
@@ -94,14 +88,12 @@ __decorate([
 __decorate([
     (0, common_1.Get)(),
     (0, roles_decorator_1.hasRoles)('ADMIN'),
-    (0, common_1.UseGuards)(jwt_guard_1.JwtAuthGuard, accountant_guard_1.RoleAccountantGuard),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
 ], GroupController.prototype, "findAll", null);
 __decorate([
     (0, common_1.Get)(':id'),
-    (0, common_1.UseGuards)(jwt_guard_1.JwtAuthGuard),
     __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
@@ -110,7 +102,6 @@ __decorate([
 __decorate([
     (0, common_1.Delete)(':id'),
     (0, roles_decorator_1.hasRoles)('ADMIN'),
-    (0, common_1.UseGuards)(jwt_guard_1.JwtAuthGuard, accountant_guard_1.RoleAccountantGuard),
     __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
@@ -119,7 +110,6 @@ __decorate([
 __decorate([
     (0, common_1.Put)('/change-captin'),
     (0, roles_decorator_1.hasRoles)('ADMIN'),
-    (0, common_1.UseGuards)(jwt_guard_1.JwtAuthGuard, accountant_guard_1.RoleAccountantGuard),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [change_captin_dto_1.ChangeCaptinDto]),
@@ -128,7 +118,6 @@ __decorate([
 __decorate([
     (0, common_1.Put)('/move-student/'),
     (0, roles_decorator_1.hasRoles)('ADMIN'),
-    (0, common_1.UseGuards)(jwt_guard_1.JwtAuthGuard, accountant_guard_1.RoleAccountantGuard),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [move_student_dto_1.MoveStudentDto]),

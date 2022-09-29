@@ -21,8 +21,6 @@ const update_captin_dto_1 = require("./dto/update-captin.dto");
 const uuid_1 = require("uuid");
 const path = require("path");
 const update_captin_profile_1 = require("./dto/update-captin-profile");
-const jwt_guard_1 = require("../auth/guards/jwt.guard");
-const role_admin_guard_1 = require("../auth/guards/role-admin.guard");
 const roles_decorator_1 = require("../auth/decorators/roles.decorator");
 const create_car_dto_1 = require("../car/dto/create-car.dto");
 let CaptinController = class CaptinController {
@@ -92,7 +90,6 @@ __decorate([
 __decorate([
     (0, common_1.Get)(),
     (0, roles_decorator_1.hasRoles)('ADMIN'),
-    (0, common_1.UseGuards)(jwt_guard_1.JwtAuthGuard, role_admin_guard_1.RoleAdminGuard),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Promise)
@@ -100,7 +97,6 @@ __decorate([
 __decorate([
     (0, common_1.Post)('documents/:id'),
     (0, roles_decorator_1.hasRoles)('ADMIN'),
-    (0, common_1.UseGuards)(jwt_guard_1.JwtAuthGuard, role_admin_guard_1.RoleAdminGuard),
     (0, common_1.UseInterceptors)((0, platform_express_1.FileInterceptor)('file', {
         storage: (0, multer_1.diskStorage)({
             destination: './upload/',
@@ -120,7 +116,6 @@ __decorate([
 __decorate([
     (0, common_1.Get)(':id'),
     (0, roles_decorator_1.hasRoles)('ADMIN'),
-    (0, common_1.UseGuards)(jwt_guard_1.JwtAuthGuard),
     __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
@@ -128,7 +123,6 @@ __decorate([
 ], CaptinController.prototype, "findOne", null);
 __decorate([
     (0, common_1.Patch)('profile/:id'),
-    (0, common_1.UseGuards)(jwt_guard_1.JwtAuthGuard),
     __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.Body)()),
     __metadata("design:type", Function),
@@ -138,7 +132,6 @@ __decorate([
 __decorate([
     (0, common_1.Patch)(':id'),
     (0, roles_decorator_1.hasRoles)('ADMIN'),
-    (0, common_1.UseGuards)(jwt_guard_1.JwtAuthGuard, role_admin_guard_1.RoleAdminGuard),
     __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.Body)()),
     __metadata("design:type", Function),
@@ -148,7 +141,6 @@ __decorate([
 __decorate([
     (0, common_1.Delete)(':id'),
     (0, roles_decorator_1.hasRoles)('ADMIN'),
-    (0, common_1.UseGuards)(jwt_guard_1.JwtAuthGuard, role_admin_guard_1.RoleAdminGuard),
     __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),

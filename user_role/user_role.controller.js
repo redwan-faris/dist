@@ -17,8 +17,6 @@ const common_1 = require("@nestjs/common");
 const user_role_service_1 = require("./user_role.service");
 const create_user_role_dto_1 = require("./dto/create-user_role.dto");
 const update_user_role_dto_1 = require("./dto/update-user_role.dto");
-const jwt_guard_1 = require("../auth/guards/jwt.guard");
-const accountant_guard_1 = require("../auth/guards/accountant.guard");
 const roles_decorator_1 = require("../auth/decorators/roles.decorator");
 let UserRoleController = class UserRoleController {
     constructor(userRoleService) {
@@ -43,7 +41,6 @@ let UserRoleController = class UserRoleController {
 __decorate([
     (0, common_1.Post)(),
     (0, roles_decorator_1.hasRoles)('SUPERADMIN'),
-    (0, common_1.UseGuards)(jwt_guard_1.JwtAuthGuard, accountant_guard_1.RoleAccountantGuard),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [create_user_role_dto_1.CreateUserRoleDto]),
@@ -65,7 +62,6 @@ __decorate([
 __decorate([
     (0, common_1.Patch)(':id'),
     (0, roles_decorator_1.hasRoles)('SUPERADMIN'),
-    (0, common_1.UseGuards)(jwt_guard_1.JwtAuthGuard, accountant_guard_1.RoleAccountantGuard),
     __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.Body)()),
     __metadata("design:type", Function),
@@ -75,7 +71,6 @@ __decorate([
 __decorate([
     (0, common_1.Delete)(':id'),
     (0, roles_decorator_1.hasRoles)('SUPERADMIN'),
-    (0, common_1.UseGuards)(jwt_guard_1.JwtAuthGuard, accountant_guard_1.RoleAccountantGuard),
     __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),

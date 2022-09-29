@@ -18,8 +18,6 @@ const recent_service_1 = require("./recent.service");
 const create_recent_dto_1 = require("./dto/create-recent.dto");
 const recent_gateway_1 = require("./recent.gateway");
 const roles_decorator_1 = require("../auth/decorators/roles.decorator");
-const jwt_guard_1 = require("../auth/guards/jwt.guard");
-const accountant_guard_1 = require("../auth/guards/accountant.guard");
 let RecentController = class RecentController {
     constructor(recentService, recentGateway) {
         this.recentService = recentService;
@@ -68,7 +66,6 @@ __decorate([
 RecentController = __decorate([
     (0, common_1.Controller)('recent'),
     (0, roles_decorator_1.hasRoles)('ADMIN'),
-    (0, common_1.UseGuards)(jwt_guard_1.JwtAuthGuard, accountant_guard_1.RoleAccountantGuard),
     __metadata("design:paramtypes", [recent_service_1.RecentService, recent_gateway_1.RecentGateway])
 ], RecentController);
 exports.RecentController = RecentController;

@@ -15,8 +15,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.TripsController = void 0;
 const common_1 = require("@nestjs/common");
 const trips_service_1 = require("./trips.service");
-const accountant_guard_1 = require("../auth/guards/accountant.guard");
-const jwt_guard_1 = require("../auth/guards/jwt.guard");
 const roles_decorator_1 = require("../auth/decorators/roles.decorator");
 let TripsController = class TripsController {
     constructor(tripsService) {
@@ -55,7 +53,6 @@ __decorate([
 TripsController = __decorate([
     (0, common_1.Controller)('trips'),
     (0, roles_decorator_1.hasRoles)('ADMIN'),
-    (0, common_1.UseGuards)(jwt_guard_1.JwtAuthGuard, accountant_guard_1.RoleAccountantGuard),
     __metadata("design:paramtypes", [trips_service_1.TripsService])
 ], TripsController);
 exports.TripsController = TripsController;

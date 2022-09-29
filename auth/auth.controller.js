@@ -20,7 +20,6 @@ const get_user_decorator_1 = require("./decorators/get-user.decorator");
 const change_password_dto_1 = require("./dto/change-password.dto");
 const forget_password_dto_1 = require("./dto/forget-password.dto");
 const login_dto_1 = require("./dto/login.dto");
-const jwt_guard_1 = require("./guards/jwt.guard");
 let AuthController = class AuthController {
     constructor(authService) {
         this.authService = authService;
@@ -52,7 +51,6 @@ __decorate([
 ], AuthController.prototype, "forgotPassword", null);
 __decorate([
     (0, common_1.Patch)('/change-password'),
-    (0, common_1.UseGuards)(jwt_guard_1.JwtAuthGuard),
     __param(0, (0, get_user_decorator_1.getUser)()),
     __param(1, (0, common_1.Body)()),
     __metadata("design:type", Function),

@@ -18,10 +18,8 @@ const user_service_1 = require("./user.service");
 const create_user_dto_1 = require("./dto/create-user.dto");
 const update_user_dto_1 = require("./dto/update-user.dto");
 const user_entity_1 = require("./entities/user.entity");
-const jwt_guard_1 = require("../auth/guards/jwt.guard");
 const get_user_decorator_1 = require("../auth/decorators/get-user.decorator");
 const change_primary_number_dto_1 = require("./dto/change-primary-number.dto");
-const accountant_guard_1 = require("../auth/guards/accountant.guard");
 const roles_decorator_1 = require("../auth/decorators/roles.decorator");
 let UserController = class UserController {
     constructor(userService) {
@@ -53,7 +51,6 @@ let UserController = class UserController {
 __decorate([
     (0, common_1.Post)(),
     (0, roles_decorator_1.hasRoles)('SUPERADMIN'),
-    (0, common_1.UseGuards)(jwt_guard_1.JwtAuthGuard, accountant_guard_1.RoleAccountantGuard),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [create_user_dto_1.CreateUserDto]),
@@ -62,7 +59,6 @@ __decorate([
 __decorate([
     (0, common_1.Get)(),
     (0, roles_decorator_1.hasRoles)('SUPERADMIN'),
-    (0, common_1.UseGuards)(jwt_guard_1.JwtAuthGuard, accountant_guard_1.RoleAccountantGuard),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Promise)
@@ -76,17 +72,14 @@ __decorate([
 ], UserController.prototype, "checkPhoneNumber", null);
 __decorate([
     (0, common_1.Get)(':id'),
-    (0, common_1.UseGuards)(jwt_guard_1.JwtAuthGuard),
     __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", Promise)
 ], UserController.prototype, "findOne", null);
 __decorate([
-    (0, common_1.UseGuards)(jwt_guard_1.JwtAuthGuard),
     (0, common_1.Patch)('change-phone'),
     (0, roles_decorator_1.hasRoles)('SUPERADMIN'),
-    (0, common_1.UseGuards)(jwt_guard_1.JwtAuthGuard, accountant_guard_1.RoleAccountantGuard),
     __param(0, (0, get_user_decorator_1.getUser)()),
     __param(1, (0, common_1.Body)()),
     __metadata("design:type", Function),
@@ -97,7 +90,6 @@ __decorate([
 __decorate([
     (0, common_1.Patch)(':id'),
     (0, roles_decorator_1.hasRoles)('SUPERADMIN'),
-    (0, common_1.UseGuards)(jwt_guard_1.JwtAuthGuard, accountant_guard_1.RoleAccountantGuard),
     __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.Body)()),
     __metadata("design:type", Function),
@@ -107,7 +99,6 @@ __decorate([
 __decorate([
     (0, common_1.Delete)(':id'),
     (0, roles_decorator_1.hasRoles)('SUPERADMIN'),
-    (0, common_1.UseGuards)(jwt_guard_1.JwtAuthGuard, accountant_guard_1.RoleAccountantGuard),
     __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
