@@ -12,7 +12,12 @@ const typeorm_1 = require("typeorm");
 const trip_entity_1 = require("./entities/trip.entity");
 let TripRepository = class TripRepository extends typeorm_1.Repository {
     async getAllTrips() {
-        return await this.find();
+        const trips = await this.find({ relations: ['captin', 'students'] });
+        return trips;
+    }
+    async findAllTripsForCaptins() {
+        const trips = await this.find({ relations: ['captin'] });
+        return trips;
     }
     async getTripById(id) {
         const trip = await this.findOne(id);

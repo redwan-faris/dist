@@ -21,7 +21,12 @@ let TripsController = class TripsController {
         this.tripsService = tripsService;
     }
     findAll() {
+        const date = new Date();
+        date.toLocaleDateString;
         return this.tripsService.findAll();
+    }
+    findAllTripsForCaptins() {
+        return this.tripsService.findAllTripsForCaptins();
     }
     findOne(id) {
         return this.tripsService.findOne(+id);
@@ -36,6 +41,12 @@ __decorate([
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Promise)
 ], TripsController.prototype, "findAll", null);
+__decorate([
+    (0, common_1.Get)('/captin'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", Promise)
+], TripsController.prototype, "findAllTripsForCaptins", null);
 __decorate([
     (0, common_1.Get)(':id'),
     __param(0, (0, common_1.Param)('id')),

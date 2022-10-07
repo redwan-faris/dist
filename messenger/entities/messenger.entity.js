@@ -12,6 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Messenger = void 0;
 const user_entity_1 = require("../../user/entities/user.entity");
 const typeorm_1 = require("typeorm");
+const class_transformer_1 = require("class-transformer");
 let Messenger = class Messenger {
 };
 __decorate([
@@ -24,6 +25,7 @@ __decorate([
 ], Messenger.prototype, "message", void 0);
 __decorate([
     (0, typeorm_1.ManyToOne)(type => user_entity_1.User, user => user.messeges),
+    (0, class_transformer_1.Transform)(({ value }) => value.phone),
     __metadata("design:type", user_entity_1.User)
 ], Messenger.prototype, "user", void 0);
 __decorate([

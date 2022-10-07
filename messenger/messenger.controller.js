@@ -79,6 +79,7 @@ __decorate([
 ], MessengerController.prototype, "remove", null);
 MessengerController = __decorate([
     (0, common_1.Controller)('messenger'),
+    (0, common_1.UseInterceptors)(common_1.ClassSerializerInterceptor),
     __metadata("design:paramtypes", [messenger_service_1.MessengerService])
 ], MessengerController);
 exports.MessengerController = MessengerController;

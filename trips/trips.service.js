@@ -30,6 +30,9 @@ let TripsService = class TripsService {
     findAll() {
         return this.tripRepository.getAllTrips();
     }
+    findAllTripsForCaptins() {
+        return this.tripRepository.findAllTripsForCaptins();
+    }
     findOne(id) {
         return this.tripRepository.getTripById(id);
     }

@@ -20,11 +20,11 @@ __decorate([
     __metadata("design:type", Number)
 ], Trip.prototype, "id", void 0);
 __decorate([
-    (0, typeorm_1.ManyToOne)((type) => student_group_entity_1.StudentGroup, (students) => students.trip, { eager: true }),
+    (0, typeorm_1.ManyToOne)((type) => student_group_entity_1.StudentGroup, (students) => students.trip),
     __metadata("design:type", student_group_entity_1.StudentGroup)
 ], Trip.prototype, "students", void 0);
 __decorate([
-    (0, typeorm_1.ManyToOne)((type) => captin_entity_1.Captin, (captin) => captin.trips),
+    (0, typeorm_1.ManyToOne)((type) => captin_entity_1.Captin, (captin) => captin.trips, { eager: true }),
     __metadata("design:type", captin_entity_1.Captin)
 ], Trip.prototype, "captin", void 0);
 __decorate([

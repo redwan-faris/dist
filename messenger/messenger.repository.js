@@ -28,7 +28,7 @@ let MessengerRepository = class MessengerRepository {
         newMessege.user = user;
     }
     async findAllMesseges() {
-        return this.messengerRepository.find();
+        return this.messengerRepository.find({ select: ['message', 'id', 'user'] });
     }
     async findOneMessege(id) {
         const messege = await this.messengerRepository.findOne(id);

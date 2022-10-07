@@ -34,6 +34,7 @@ __decorate([
 ], Student.prototype, "department_door", void 0);
 __decorate([
     (0, typeorm_1.Column)({ type: "date", nullable: false }),
+    (0, class_transformer_1.Transform)(({ value }) => value.toLocaleDateString()),
     __metadata("design:type", Date)
 ], Student.prototype, "birth_date", void 0);
 __decorate([

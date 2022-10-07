@@ -10,6 +10,7 @@ export declare class TripsService {
     private readonly groupService;
     constructor(tripRepository: TripRepository, studentService: StudentService, captinService: CaptinService, groupService: GroupService);
     findAll(): Promise<Trip[]>;
+    findAllTripsForCaptins(): Promise<Trip[]>;
     findOne(id: number): Promise<Trip>;
     remove(id: number): Promise<void>;
     addTodayTrips(): Promise<void>;
