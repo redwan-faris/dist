@@ -18,12 +18,13 @@ let CaptinRepository = class CaptinRepository extends typeorm_1.Repository {
     }
     async createCaptin(createCaptinType, createCaptinDto, manager) {
         const { captinType, polygon, car, user, region } = createCaptinType;
-        const { driving_license, is_captin } = createCaptinDto;
+        const { driving_license, is_captin, birth_date } = createCaptinDto;
         const captin = new captin_entity_1.Captin();
         captin.is_captin = is_captin;
         captin.driving_license = driving_license;
         captin.caption_type = captinType;
         captin.polygon = polygon;
+        captin.birth_date = birth_date;
         captin.cars = [car];
         captin.user = user;
         captin.region = region;

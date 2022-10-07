@@ -9,4 +9,5 @@ export declare class CreateCaptinDto {
     polygon: PolygonType;
     car: CreateCarDto;
     user: CreateUserDto;
+    birth_date: Date;
 }

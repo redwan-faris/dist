@@ -44,5 +44,9 @@ __decorate([
     (0, class_validator_1.IsNotEmpty)(),
     __metadata("design:type", create_user_dto_1.CreateUserDto)
 ], CreateCaptinDto.prototype, "user", void 0);
+__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    __metadata("design:type", Date)
+], CreateCaptinDto.prototype, "birth_date", void 0);
 exports.CreateCaptinDto = CreateCaptinDto;
 //# sourceMappingURL=create-captin.dto.js.map
