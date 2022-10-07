@@ -93,6 +93,10 @@ __decorate([
     __metadata("design:type", polygon_entity_1.Polygon)
 ], Captin.prototype, "polygon", void 0);
 __decorate([
+    (0, typeorm_1.Column)({ type: "date", nullable: false }),
+    __metadata("design:type", Date)
+], Captin.prototype, "birth_date", void 0);
+__decorate([
     (0, typeorm_1.CreateDateColumn)({ type: 'timestamp', nullable: false }),
     __metadata("design:type", Date)
 ], Captin.prototype, "created_at", void 0);

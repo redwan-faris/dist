@@ -25,6 +25,7 @@ export declare class Captin {
     adjustment: Adjustment;
     trips: Trip[];
     polygon: Polygon;
+    birth_date: Date;
     created_at: Date;
     updated_at: Date;
 }
