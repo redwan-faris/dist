@@ -40,11 +40,12 @@ const door_module_1 = require("./door/door.module");
 const rating_module_1 = require("./rating/rating.module");
 const config_1 = require("@nestjs/config");
 const typeormConfig_1 = require("./config/typeormConfig");
+const notes_module_1 = require("./notes/notes.module");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
     (0, common_1.Module)({
-        imports: [config_1.ConfigModule.forRoot(), schedule_1.ScheduleModule.forRoot(), auth_module_1.AuthModule, user_module_1.UserModule, user_role_module_1.UserRoleModule, captin_module_1.CaptinModule, student_module_1.StudentModule, student_type_module_1.StudentTypeModule, captin_type_module_1.CaptinTypeModule, captin_payroll_module_1.CaptinPayrollModule, student_payroll_module_1.StudentPayrollModule, region_module_1.RegionModule, department_module_1.DepartmentModule, shift_module_1.ShiftModule, group_module_1.GroupModule, messenger_module_1.MessengerModule, polygon_module_1.PolygonModule, car_module_1.CarModule, adjustment_module_1.AdjustmentModule, days_module_1.DaysModule, typeorm_1.TypeOrmModule.forRootAsync(typeormConfig_1.typeOrmConfigAsync), notifications_module_1.NotificationsModule, token_module_1.TokenModule, price_region_module_1.PriceRegionModule, prices_module_1.PricesModule, recent_module_1.RecentModule, trips_module_1.TripsModule, door_module_1.DoorModule, rating_module_1.RatingModule],
+        imports: [config_1.ConfigModule.forRoot(), schedule_1.ScheduleModule.forRoot(), auth_module_1.AuthModule, user_module_1.UserModule, user_role_module_1.UserRoleModule, captin_module_1.CaptinModule, student_module_1.StudentModule, student_type_module_1.StudentTypeModule, captin_type_module_1.CaptinTypeModule, captin_payroll_module_1.CaptinPayrollModule, student_payroll_module_1.StudentPayrollModule, region_module_1.RegionModule, department_module_1.DepartmentModule, shift_module_1.ShiftModule, group_module_1.GroupModule, messenger_module_1.MessengerModule, polygon_module_1.PolygonModule, car_module_1.CarModule, adjustment_module_1.AdjustmentModule, days_module_1.DaysModule, typeorm_1.TypeOrmModule.forRootAsync(typeormConfig_1.typeOrmConfigAsync), notifications_module_1.NotificationsModule, token_module_1.TokenModule, price_region_module_1.PriceRegionModule, prices_module_1.PricesModule, recent_module_1.RecentModule, trips_module_1.TripsModule, door_module_1.DoorModule, rating_module_1.RatingModule, notes_module_1.NotesModule],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],
     })

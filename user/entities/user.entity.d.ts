@@ -4,6 +4,7 @@ import { Captin } from 'src/captin/entities/captin.entity';
 import { Notification } from 'src/notifications/entities/notification.entity';
 import { Token } from 'src/token/entities/token.entity';
 import { Messenger } from 'src/messenger/entities/messenger.entity';
+import { Note } from 'src/notes/entities/note.entity';
 export declare class User {
     id: number;
     password: string;
@@ -18,6 +19,7 @@ export declare class User {
     messeges: Messenger[];
     created_at: Date;
     updated_at: Date;
+    notes: Note[];
     isValidPassword(textPassword: string, hashedPassword: string): boolean;
     hashUserPassword(): void;
 }

@@ -19,6 +19,7 @@ const captin_entity_1 = require("../../captin/entities/captin.entity");
 const notification_entity_1 = require("../../notifications/entities/notification.entity");
 const token_entity_1 = require("../../token/entities/token.entity");
 const messenger_entity_1 = require("../../messenger/entities/messenger.entity");
+const note_entity_1 = require("../../notes/entities/note.entity");
 let User = class User {
     isValidPassword(textPassword, hashedPassword) {
         return bcrypt.compareSync(textPassword, hashedPassword);
@@ -84,6 +85,10 @@ __decorate([
     (0, typeorm_1.UpdateDateColumn)(),
     __metadata("design:type", Date)
 ], User.prototype, "updated_at", void 0);
+__decorate([
+    (0, typeorm_1.OneToMany)((type) => note_entity_1.Note, (note) => note.user),
+    __metadata("design:type", Array)
+], User.prototype, "notes", void 0);
 User = __decorate([
     (0, typeorm_1.Entity)()
 ], User);
