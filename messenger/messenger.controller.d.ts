@@ -4,7 +4,7 @@ import { UpdateMessengerDto } from './dto/update-messenger.dto';
 export declare class MessengerController {
     private readonly messengerService;
     constructor(messengerService: MessengerService);
-    create(createMessengerDto: CreateMessengerDto): Promise<void>;
+    create(createMessengerDto: CreateMessengerDto): Promise<import("./entities/messenger.entity").Messenger>;
     findAll(): Promise<import("./entities/messenger.entity").Messenger[]>;
     findOne(id: string): Promise<import("./entities/messenger.entity").Messenger>;
     update(id: string, updateMessengerDto: UpdateMessengerDto): Promise<import("./entities/messenger.entity").Messenger>;

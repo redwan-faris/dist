@@ -6,7 +6,7 @@ export declare class MessengerService {
     private readonly messengerRepository;
     private readonly userService;
     constructor(messengerRepository: MessengerRepository, userService: UserService);
-    create(createMessengerDto: CreateMessengerDto): Promise<void>;
+    create(createMessengerDto: CreateMessengerDto): Promise<import("./entities/messenger.entity").Messenger>;
     findAll(): Promise<import("./entities/messenger.entity").Messenger[]>;
     findOne(id: number): Promise<import("./entities/messenger.entity").Messenger>;
     update(id: number, updateMessengerDto: UpdateMessengerDto): Promise<import("./entities/messenger.entity").Messenger>;

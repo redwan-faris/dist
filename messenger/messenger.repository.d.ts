@@ -6,7 +6,7 @@ import { Messenger } from "./entities/messenger.entity";
 export declare class MessengerRepository {
     private readonly messengerRepository;
     constructor(messengerRepository: Repository<Messenger>);
-    addMessege(createMessengerDto: CreateMessengerDto, user: User): Promise<void>;
+    addMessege(createMessengerDto: CreateMessengerDto, user: User): Promise<Messenger>;
     findAllMesseges(): Promise<Messenger[]>;
     findOneMessege(id: number): Promise<Messenger>;
     updateMessege(updateMessegeDto: UpdateMessengerDto, id: number): Promise<Messenger>;

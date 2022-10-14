@@ -26,6 +26,7 @@ let MessengerRepository = class MessengerRepository {
         const newMessege = new messenger_entity_1.Messenger();
         newMessege.message = messege;
         newMessege.user = user;
+        return await this.messengerRepository.save(newMessege);
     }
     async findAllMesseges() {
         return this.messengerRepository.find({ select: ['message', 'id', 'user'] });
