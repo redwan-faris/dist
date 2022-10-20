@@ -78,7 +78,7 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], GroupController.prototype, "getStudent", null);
 __decorate([
-    (0, common_1.Get)('tomorrow'),
+    (0, common_1.Get)(' '),
     __param(0, (0, common_1.Query)('captindId')),
     __param(1, (0, common_1.Query)('studentId')),
     __metadata("design:type", Function),
